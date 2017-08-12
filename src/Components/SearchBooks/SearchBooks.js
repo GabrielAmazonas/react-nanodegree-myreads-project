@@ -1,24 +1,31 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import {Link} from 'react-router-dom'
+import sortBy from 'sort-by'
+import * as BooksAPI from '../../Services/BooksAPI'
 
 class SearchBooks extends Component {
-  static propTypes = {}
+  static propTypes = {
+    books: PropTypes.array.isRequired
+  }
 
   state = {
-    query: '',
-    bookResults: []
+    maxResults: 10
   }
 
   updateQuery = (query) => {
-    this.setState({
-      query: query.trim()
-    })
-  }
+    let books = []
+    if (query !== '') {
+      BooksAPI
+        .search(query)
+        .then(books => {
+          this.setState({books})
+        })
+    } else {
+      this.setState({books})
+    }
 
-  clearQuery = () => {
-    this.setState({query: ''})
   }
 
   closeSearch = (e) => {
@@ -29,38 +36,41 @@ class SearchBooks extends Component {
   }
 
   render() {
+    const {books} = this.state
+    const allBooks = this.props.books
 
-    const {query, bookResults} = this.state
+    let showBooks
+
+    if (allBooks !== undefined && allBooks.length > 0) {
+      showBooks = allBooks
+    }
+    if (books !== undefined && books.length > 0) {
+      showBooks = books
+    }
+    if (showBooks !== undefined && showBooks.length > 0) {
+      showBooks.sort(sortBy('title'))
+    }
 
     return (
       <div className="search-books">
         <div className="search-books-bar">
           <Link to="/" className="close-search">
-                Close Search 
+            Close Search
           </Link>
           <div className="search-books-input-wrapper">
-            {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
             <input
               onChange={(event) => {
-              console.log(event.target.value)
               this.updateQuery(event.target.value)
             }}
               type="text"
-              placeholder="Search by title or author"/> {/*When the query changes, show list of matching books.*/}
+              placeholder="Search by title or author"/>
           </div>
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
 
-            {bookResults.map((book) => (
-              <li>
+            {showBooks && (showBooks.map((book) => (
+              <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
                     <div
@@ -68,7 +78,7 @@ class SearchBooks extends Component {
                       style={{
                       width: 128,
                       height: 193,
-                      backgroundImage: `url(${book.bookcover})`
+                      backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                     }}></div>
 
                     <div className="book-shelf-changer">
@@ -85,7 +95,7 @@ class SearchBooks extends Component {
                   <div className="book-authors">{book.authors}</div>
                 </div>
               </li>
-            ))}
+            )))}
 
           </ol>
         </div>
