@@ -20,8 +20,7 @@ class ListBooks extends Component {
                 name: "read",
                 title: "Read"
             }
-        ],
-        filterByShelf: "" 
+        ]
     }
 
     filterByShelf(booksArray, shelfName){
