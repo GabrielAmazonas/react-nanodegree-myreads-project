@@ -21,13 +21,13 @@ class ListBooks extends Component {
                 title: "Read"
             }
         ],
-        filterByShelf: function filterByShelf(booksArray, shelfName){
+        filterByShelf: "" 
+    }
+
+    filterByShelf(booksArray, shelfName){
             const booksToReturn = booksArray.filter(book => book.shelf === shelfName)
             return booksToReturn
         }
-    }
-
-    
 
     render() {
         const shelfs = this.state.shelfs
@@ -42,7 +42,7 @@ class ListBooks extends Component {
                             <h2 className="bookshelf-title">{shelf.title}</h2>
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
-                                    {books && (this.state.filterByShelf(books, shelf.name).map((book) => (
+                                    {books && (this.filterByShelf(books, shelf.name).map((book) => (
                                         <li key={book.id}>
                                             <Book book={book} updateShelf={this.props.updateShelf.bind(this)}/>
                                         </li>
