@@ -99,6 +99,51 @@ body, .app {
   font-size: 0;
 }
 
+.github-profile {
+  display: block;
+  float:left;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background: #30E0FC;
+  background-image: url('./icons/github.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+}
+
+.linkedin-profile {
+  display: block;
+  float: left;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background: #30E0FC;
+  background-image: url('./icons/linkedin.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+}
+
+.twitter-profile {
+  display: block;
+  float: left;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background: #30E0FC;
+  background-image: url('./icons/twitter.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+}
+
 .search-books-results {
   padding: 80px 10px 20px;
 }

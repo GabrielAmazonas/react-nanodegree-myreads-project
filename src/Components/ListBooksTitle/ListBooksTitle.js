@@ -8,11 +8,12 @@ class ListBooksTitle extends Component {
         return (
 
             <div className="list-books-title">
-                <div className="profile-name"></div>
-                <div className="github-profile"></div>
-                <div className="twitter-profile"></div>
-                <div className="linkedin-profile"></div>
-                <h1>@GabrielAmazonas Reads</h1>
+                <a className="github-profile" href="https://github.com/GabrielAmazonas"></a>
+                <a className="twitter-profile" href="https://twitter.com/AmazonasGabriel"></a>
+                <a
+                    className="linkedin-profile"
+                    href="https://www.linkedin.com/in/gabriel-amazonas/"></a>
+                <h1>@AmazonasGabriel Reads - React ND - Project 1</h1>
             </div>
         )
 
