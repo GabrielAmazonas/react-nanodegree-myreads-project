@@ -1,20 +1,28 @@
-GabrielAmazonas MyReads React Nanodegree Project.
+@GabrielAmazonas MyReads React Nanodegree Project.
+
+# To use this project:
+**1 - git clone this-repo-url**
+**2 - react-nanodegree-myreads-project**
+**3 - yarn install**
+**4 - yarn start**
+
 
 The project was built on top of the starter repo provided in the lessons.
+README.MD from starter project below.
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Starter Readme
-
-
-
-
-
-
-
-
-
-
-
-
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com). The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
 
