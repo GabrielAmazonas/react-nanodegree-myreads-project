@@ -2,10 +2,10 @@ import React from 'react'
 import * as BooksAPI from '../../Services/BooksAPI'
 import './App.css'
 import {Route} from 'react-router-dom'
-import SearchBooks from '../SearchBooks/SearchBooks'
-import ListBooks from '../ListBooks/ListBooks'
+import SearchBooks from '../SearchBooks'
+import ListBooks from '../ListBooks'
 
-class BooksApp extends React.Component {
+class App extends React.Component {
   state = {
     books: []
   }
@@ -57,4 +57,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default App
