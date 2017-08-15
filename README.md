@@ -2,7 +2,7 @@
 
 # To use this project:
 1.  git clone this-repo-url
-2.  react-nanodegree-myreads-project
+2.  cd react-nanodegree-myreads-project
 3.  npm install
 4.  npm start
 
