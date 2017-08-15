@@ -11,11 +11,11 @@ class SearchBooks extends Component {
   }
 
   state = {
-    maxResults: 10
+    books: []
   }
 
   updateQuery = (query) => {
-    let books = []
+    const books = []
     if (query !== '') {
       BooksAPI
         .search(query)
