@@ -1,10 +1,10 @@
 @GabrielAmazonas MyReads React Nanodegree Project.
 
 # To use this project:
-**1 - git clone this-repo-url**
-**2 - react-nanodegree-myreads-project**
-**3 - yarn install**
-**4 - yarn start**
+1.  git clone this-repo-url
+2.  react-nanodegree-myreads-project
+3.  npm install
+4.  npm start
 
 
 The project was built on top of the starter repo provided in the lessons.
