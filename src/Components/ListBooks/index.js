@@ -6,7 +6,7 @@ import Book from '../Book'
 class ListBooks extends Component {
 
     state = {
-        shelfs: [
+        shelves: [
             {
                 name: "currentlyReading",
                 title: "Currently Reading"
@@ -21,14 +21,14 @@ class ListBooks extends Component {
     }
 
     render() {
-        const shelfs = this.state.shelfs
-        const books = this.props.books
+        const {shelves} = this.state
+        const {books} = this.props
 
         return (
             <div className="list-books">
                 <ListBooksTitle/>
                 <div className="list-books-content">
-                    {shelfs && shelfs.map((shelf) => (
+                    {shelves && shelves.map((shelf) => (
                         <div key={shelf.name} className="bookshelf">
                             <h2 className="bookshelf-title">{shelf.title}</h2>
                             <div className="bookshelf-books">
