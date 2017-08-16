@@ -35,12 +35,7 @@ class ListBooks extends Component {
                                 <ol className="books-grid">
                                     {books && (books.filter(book => book.shelf === shelf.name).map((book) => (
                                         <li key={book.id}>
-                                            <Book
-                                                book={book}
-                                                updateShelf={this
-                                                .props
-                                                .updateShelf
-                                                .bind(this)}/>
+                                            <Book book={book} updateShelf={this.props.updateShelf}/>
                                         </li>
                                     )))}
                                 </ol>
