@@ -46,9 +46,7 @@ class SearchBooks extends Component {
           </Link>
           <div className="search-books-input-wrapper">
             <input
-              onChange={(event) => {
-              this.updateQuery(event.target.value)
-            }}
+              onChange={(event) => this.updateQuery(event.target.value)}
               type="text"
               placeholder="Search by title or author"/>
           </div>
@@ -58,12 +56,7 @@ class SearchBooks extends Component {
 
             {books && (books.map((book) => (
               <li key={book.id}>
-                <Book
-                  book={book}
-                  updateShelf={this
-                  .props
-                  .updateShelf
-                  .bind(this)}/>
+                <Book book={book} updateShelf={this.props.updateShelf}/>
               </li>
             )))}
 

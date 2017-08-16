@@ -10,13 +10,6 @@ class App extends React.Component {
     books: []
   }
 
-  componentDidUpdate() {
-    BooksAPI
-      .getAll()
-      .then((books) => this.setState({books}))
-
-  }
-
   componentDidMount() {
     BooksAPI
       .getAll()
@@ -27,7 +20,13 @@ class App extends React.Component {
     if (book.shelf !== shelf) {
       BooksAPI
         .update(book, shelf)
-        .then(book => this.setState({book}))
+        .then(() => {
+
+          BooksAPI
+            .getAll()
+            .then((books) => this.setState({books}))
+
+        })
     }
   }
 
@@ -45,11 +44,7 @@ class App extends React.Component {
         <Route
           exact
           path="/search"
-          render={() => (<SearchBooks
-          updateShelf={this
-          .updateShelf
-          .bind(this)}
-          onCloseSearch={this.closeSearch}/>)}/>
+          render={() => (<SearchBooks updateShelf={this.updateShelf} onCloseSearch={this.closeSearch}/>)}/>
       </div>
 
     )
