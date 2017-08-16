@@ -6,14 +6,19 @@ import SearchBooks from '../SearchBooks'
 import ListBooks from '../ListBooks'
 
 class App extends React.Component {
+
+  getAllBooks = () => {
+    BooksAPI
+      .getAll()
+      .then((books) => this.setState({books}))
+  }
+
   state = {
     books: []
   }
 
   componentDidMount() {
-    BooksAPI
-      .getAll()
-      .then((books) => this.setState({books}))
+    this.getAllBooks()
   }
 
   updateShelf(book, shelf) {
@@ -21,26 +26,20 @@ class App extends React.Component {
       BooksAPI
         .update(book, shelf)
         .then(() => {
-
-          BooksAPI
-            .getAll()
-            .then((books) => this.setState({books}))
-
+          this.getAllBooks()
         })
     }
   }
 
+
+  //The state management doesn't work without the .bind(this) in the first Route component.
   render() {
     return (
       <div className="app">
         <Route
           exact
           path="/"
-          render={() => (<ListBooks
-          books={this.state.books}
-          updateShelf={this
-          .updateShelf
-          .bind(this)}/>)}/>
+          render={() => (<ListBooks books={this.state.books} updateShelf={this.updateShelf.bind(this)}/>)}/>
         <Route
           exact
           path="/search"

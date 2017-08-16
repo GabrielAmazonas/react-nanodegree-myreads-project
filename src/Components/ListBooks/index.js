@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import ListBooksTitle from '../ListBooksTitle'
 import Book from '../Book'
 
-
 class ListBooks extends Component {
 
     state = {
@@ -21,11 +20,6 @@ class ListBooks extends Component {
         ]
     }
 
-    filterByShelf(booksArray, shelfName){
-            const booksToReturn = booksArray.filter(book => book.shelf === shelfName)
-            return booksToReturn
-        }
-
     render() {
         const shelfs = this.state.shelfs
         const books = this.props.books
@@ -34,20 +28,25 @@ class ListBooks extends Component {
             <div className="list-books">
                 <ListBooksTitle/>
                 <div className="list-books-content">
-                     {shelfs && shelfs.map((shelf) => (
+                    {shelfs && shelfs.map((shelf) => (
                         <div key={shelf.name} className="bookshelf">
                             <h2 className="bookshelf-title">{shelf.title}</h2>
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
-                                    {books && (this.filterByShelf(books, shelf.name).map((book) => (
+                                    {books && (books.filter(book => book.shelf === shelf.name).map((book) => (
                                         <li key={book.id}>
-                                            <Book book={book} updateShelf={this.props.updateShelf.bind(this)}/>
+                                            <Book
+                                                book={book}
+                                                updateShelf={this
+                                                .props
+                                                .updateShelf
+                                                .bind(this)}/>
                                         </li>
                                     )))}
                                 </ol>
                             </div>
-                        </div>    
-                        ))}
+                        </div>
+                    ))}
                 </div>
                 <div className="open-search">
                     <Link to="/search">
@@ -59,4 +58,4 @@ class ListBooks extends Component {
     }
 }
 
-    export default ListBooks
+export default ListBooks
