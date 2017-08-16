@@ -21,11 +21,7 @@ const Book = (props) => {
                     backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                 }}></div>
 
-                <BookShelfChanger
-                    book={book}
-                    updateShelf={props
-                    .updateShelf
-                    .bind(this)}/>
+                <BookShelfChanger book={book} updateShelf={props.updateShelf}/>
             </div>
             <div className="book-title">{book.title}</div>
             <div className="book-authors">{book.authors}</div>
