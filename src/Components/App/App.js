@@ -46,7 +46,6 @@ class App extends React.Component {
           exact
           path="/search"
           render={() => (<SearchBooks
-          books={this.state.books}
           updateShelf={this
           .updateShelf
           .bind(this)}

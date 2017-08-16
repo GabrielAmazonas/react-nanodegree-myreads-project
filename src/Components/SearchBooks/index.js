@@ -37,20 +37,7 @@ class SearchBooks extends Component {
 
   render() {
     const {books} = this.state
-    const allBooks = this.props.books
-
-    let showBooks
-
-    if (allBooks !== undefined && allBooks.length > 0) {
-      showBooks = allBooks
-    }
-    if (books !== undefined && books.length > 0) {
-      showBooks = books
-    }
-    if (showBooks !== undefined && showBooks.length > 0) {
-      showBooks.sort(sortBy('title'))
-    }
-
+    books.sort(sortBy('title'))
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -69,7 +56,7 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
 
-            {showBooks && (showBooks.map((book) => (
+            {books && (books.map((book) => (
               <li key={book.id}>
                 <Book
                   book={book}
