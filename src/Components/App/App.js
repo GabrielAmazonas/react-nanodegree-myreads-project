@@ -21,7 +21,7 @@ class App extends React.Component {
     this.getAllBooks()
   }
 
-  updateShelf(book, shelf) {
+  updateShelf = (book, shelf) => {
     if (book.shelf !== shelf) {
       BooksAPI
         .update(book, shelf)
@@ -31,15 +31,13 @@ class App extends React.Component {
     }
   }
 
-
-  //The state management doesn't work without the .bind(this) in the first Route component.
   render() {
     return (
       <div className="app">
         <Route
           exact
           path="/"
-          render={() => (<ListBooks books={this.state.books} updateShelf={this.updateShelf.bind(this)}/>)}/>
+          render={() => (<ListBooks books={this.state.books} updateShelf={this.updateShelf}/>)}/>
         <Route
           exact
           path="/search"
