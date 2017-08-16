@@ -1,9 +1,6 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class ListBooksTitle extends Component {
-
-    render() {
-
+const ListBooksTitle = () => {
         return (
 
             <div className="list-books-title">
@@ -15,8 +12,6 @@ class ListBooksTitle extends Component {
                 <h1>@AmazonasGabriel Reads - React ND - Project 1</h1>
             </div>
         )
-
-    }
 
 }
 
