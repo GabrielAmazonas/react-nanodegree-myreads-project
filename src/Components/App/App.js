@@ -10,7 +10,10 @@ class App extends React.Component {
   getAllBooks = () => {
     BooksAPI
       .getAll()
-      .then((books) => this.setState({books}))
+      .then((books) =>{
+        this.setState({books})
+        console.log(books)
+      })
   }
 
   state = {
@@ -41,7 +44,7 @@ class App extends React.Component {
         <Route
           exact
           path="/search"
-          render={() => (<SearchBooks updateShelf={this.updateShelf} onCloseSearch={this.closeSearch}/>)}/>
+          render={() => (<SearchBooks books={this.state.books} updateShelf={this.updateShelf} onCloseSearch={this.closeSearch}/>)}/>
       </div>
 
     )

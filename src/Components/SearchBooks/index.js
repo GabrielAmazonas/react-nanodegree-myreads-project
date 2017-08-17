@@ -14,18 +14,21 @@ class SearchBooks extends Component {
     books: []
   }
 
+  getAllBooks = () => {
+    BooksAPI
+      .getAll()
+      .then((books) => this.setState({books}))
+  }
+
+
   updateQuery = (query) => {
-    const books = []
     if (query !== '') {
       BooksAPI
         .search(query)
         .then(books => {
           this.setState({books})
         })
-    } else {
-      this.setState({books})
     }
-
   }
 
   closeSearch = (e) => {
