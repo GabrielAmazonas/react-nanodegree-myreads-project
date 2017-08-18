@@ -16,13 +16,14 @@ class BookShelfChanger extends Component {
                 <select
                     onChange={(event) => {
                     if (event.target.value !== book.shelf) {
-                        console.log(book.shelf)
                         this
                             .props
-                            .updateShelf(book, event.target.value)
+                            .updateBook(book, event.target.value);
                     }
                 }}
-                    value={book.shelf ? book.shelf : "none"}>
+                    value={book.shelf
+                    ? book.shelf
+                    : "none"}>
                     <option value="none" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
